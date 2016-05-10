@@ -22,7 +22,7 @@ namespace RLS
 			Rinv = new Matrix (windowLength, windowLength, 1, delta ); 
 		}
 
-		public Matrix getCoefficients ( double iNewInput  , double iExpectedOutput )
+		public Matrix getCoefficients ( double iNewInput  , double iExpectedOutput , ref double output )
 		{
 			// Actualize Input Matrix
 			for ( int j = windowLength - 1 ; j >= 1 ; j-- )
@@ -30,7 +30,7 @@ namespace RLS
 			Input[ 0 , 0 ] = iNewInput ;
 
 			// Perform the convolution
-			double output =  Input.Transpose().Multiply( Coefficients ).GetValue();
+			output =  Input.Transpose().Multiply( Coefficients ).GetValue();
 			double error = iExpectedOutput - output ; 
 
 			// Compute Kalman Gains
@@ -48,3 +48,4 @@ namespace RLS
 		}
 	}
 }
+
