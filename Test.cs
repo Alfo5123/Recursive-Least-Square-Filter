@@ -69,8 +69,8 @@ namespace RLS
 			{
 				// Apply RLS Filter to each new iteration
 				coef = RLSF.getCoefficients( ( double ) InputSignal[i], 
-											 ( double ) ExpectedOutputSignal[i] , 
-											  ref Output ); 
+							     ( double ) ExpectedOutputSignal[i] , 
+							      ref Output ); 
 
 				//Write Output Signal
 				sw.WriteLine( String.Format("{0:F20}", Output) ) ;
